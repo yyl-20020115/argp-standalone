@@ -4,8 +4,7 @@ project(argp C)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-option(USE_TESTS "Enable test program" ON)
-set(USE_TESTS ON)
+option(USE_TESTS "Enable test program" OFF)
 include_directories(.)
 # Add source files
 set(SOURCES 
