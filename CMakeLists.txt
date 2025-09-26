@@ -7,7 +7,6 @@ include_directories(. utils)
 # Add source files
 set(SOURCES 
     utils/getopt.h
-    utils/getopt.c
     argp-util.h
     argp-util.c
     argp-ba.c
