@@ -8,6 +8,15 @@ int sleep(int n) {
 int random(void) {
     return rand();
 }
+void* __cdecl mempcpy(
+    void* _Dst,
+    void const* _Src,
+    size_t      _Size
+) {
+
+    memcpy(_Dst, _Src, _Size);
+    return (char*)_Dst + _Size;
+}
 char* strndup(const char* s, size_t n)
 {
     size_t len = strlen(s) > n ? n : strlen(s);

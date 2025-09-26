@@ -6,8 +6,12 @@
 #define fputs_unlocked fputs
 #define __attribute__(x) 
 #define strcasecmp(x,y) _stricmp(x,y)
-#define mempcpy memcpy
 #  define dgettext(domain, msgid) (msgid)
+void* __cdecl mempcpy(
+    void* _Dst,
+    void const* _Src,
+    size_t      _Size
+);
 
 int random(void);
 int sleep(int n);
