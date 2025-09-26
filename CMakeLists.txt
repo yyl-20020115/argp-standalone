@@ -3,6 +3,9 @@ project(argp C)
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
+
+option(USE_TESTS "Enable test program" OFF)
+
 include_directories(.)
 # Add source files
 set(SOURCES 
@@ -32,7 +35,6 @@ endif()
 set_target_properties(argp PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
-set(USE_TESTS ON)
 if(USE_TESTS)
 add_executable(argp-test argp-test.c asprintf.h asprintf.c)
 target_link_libraries(argp-test argp)
