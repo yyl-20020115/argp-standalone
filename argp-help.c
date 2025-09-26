@@ -24,7 +24,7 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-
+#ifndef _WIN32
 /* AIX requires this to be the first thing in the file.  */
 #ifndef __GNUC__
 # if HAVE_ALLOCA_H || 0
@@ -38,6 +38,20 @@ char *alloca ();
 #   endif
 #  endif
 # endif
+#endif
+#ifndef _
+/* This is for other GNU distributions with internationalized messages.  */
+# if defined HAVE_LIBINTL_H || 0
+#  include <libintl.h>
+#  if 0
+#   undef dgettext
+#   define dgettext(domain, msgid) \
+  __dcgettext (domain, msgid, LC_MESSAGES)
+#  endif
+# else
+#  define dgettext(domain, msgid) (msgid)
+# endif
+#endif
 #endif
 
 #include <stdbool.h>
@@ -54,20 +68,8 @@ char *alloca ();
 # include <wchar.h>
 #endif
 #ifdef _WIN32
-#define __attribute__(x) 
-#endif
-#ifndef _
-/* This is for other GNU distributions with internationalized messages.  */
-# if defined HAVE_LIBINTL_H || 0
-#  include <libintl.h>
-#  if 0
-#   undef dgettext
-#   define dgettext(domain, msgid) \
-  __dcgettext (domain, msgid, LC_MESSAGES)
-#  endif
-# else
-#  define dgettext(domain, msgid) (msgid)
-# endif
+#include <argp-util.h>
+#include <malloc.h>
 #endif
 
 /* can't use macro due to double evaluation */

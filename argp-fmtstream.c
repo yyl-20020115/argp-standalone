@@ -23,14 +23,15 @@
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
+#ifdef _WIN32
+#include <argp-util.h>
+#endif
 
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
 #include <stdarg.h>
 #include <ctype.h>
-#ifdef _WIN32
-#endif
 #include <argp-fmtstream.h>
 #include "argp-namefrob.h"
 #ifndef ARGP_FMTSTREAM_USE_LINEWRAP

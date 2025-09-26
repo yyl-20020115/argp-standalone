@@ -29,6 +29,9 @@
 #include <time.h>
 #include <string.h>
 #include <argp.h>
+#ifndef _WIN32
+#include <asprintf.h>
+#endif
 
 const char *argp_program_version = "argp-test 1.0";
 
@@ -83,7 +86,7 @@ is preceded by a blank line).");
 static struct argp sub_argp = {
   sub_options, sub_parse_opt, sub_args_doc, sub_doc, 0, sub_help_filter
 };
-
+
 /* Structure used to communicate with the parsing functions.  */
 struct params
 {

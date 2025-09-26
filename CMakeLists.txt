@@ -8,6 +8,8 @@ include_directories(. utils)
 set(SOURCES 
     utils/getopt.h
     utils/getopt.c
+    argp-util.h
+    argp-util.c
     argp-ba.c
     argp-eexst.c
     argp-fmtstream.c
@@ -21,7 +23,7 @@ set(SOURCES
 )
 
 add_library(argp STATIC ${SOURCES})
-add_executable(argp-test argp-test.c)
+add_executable(argp-test argp-test.c asprintf.h asprintf.c)
 target_link_libraries(argp-test argp)
 if(MSVC)
 	target_compile_options(argp PRIVATE -D_CRT_SECURE_NO_WARNINGS)

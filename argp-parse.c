@@ -21,7 +21,14 @@
 #include <config.h>
 #endif
 
+#include <stdlib.h>
+#include <string.h>
+#include <limits.h>
+   
 /* AIX requires this to be the first thing in the file.  */
+#ifndef _WIN32
+#include <unistd.h>
+
 #ifndef __GNUC__
 # if HAVE_ALLOCA_H || 0
 #  include <alloca.h>
@@ -35,14 +42,6 @@ char *alloca ();
 #  endif
 # endif
 #endif
-
-#include <stdlib.h>
-#include <string.h>
-#include <limits.h>
-#ifndef _WIN32
-#include <unistd.h>
-#endif
-#include <getopt.h>
 #ifndef _
 /* This is for other GNU distributions with internationalized messages.
    When compiling libc, the _ macro is predefined.  */
@@ -58,9 +57,16 @@ char *alloca ();
 #  define gettext(msgid) (msgid)
 # endif
 #endif
+#else
+#include "argp-util.h"
+#endif
+
 #ifndef N_
 # define N_(msgid) (msgid)
 #endif
+
+#include <malloc.h>
+#include <getopt.h>
 
 #include <argp.h>
 #include "argp-namefrob.h"
