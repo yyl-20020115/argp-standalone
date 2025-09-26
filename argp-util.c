@@ -1,5 +1,5 @@
+#ifdef _WIN32
 #include <windows.h>
-
 #include "argp-util.h"
 int sleep(int n) {
     Sleep(n * 1000);
@@ -28,3 +28,4 @@ char* strchrnul(const char* s, int c) {
         return (char*)s + strlen(s);
     }
 }
+#endif
