@@ -1,5 +1,9 @@
 # argp-standalone
 
+20250927-02:01
+CMakeLists.txt added for porting to Windows (MSVC)
+by Yilin
+
 This is a continuation of [Niels Möller](https://www.lysator.liu.se/~nisse/)'s
 work on an argp library for systems which don't provide one themselves (most
 non-GNU ones).
