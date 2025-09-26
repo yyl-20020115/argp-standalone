@@ -22,7 +22,9 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#ifndef _WIN32
 #include <getopt.h>
+#endif
 #include <limits.h>
 #include <errno.h>
 

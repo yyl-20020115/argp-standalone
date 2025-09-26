@@ -27,8 +27,11 @@
 
 #include <stdio.h>
 #include <string.h>
+#ifndef _WIN32
 #include <unistd.h>
-
+#else
+#include <stddef.h>
+#endif
 #ifndef PRINTF_STYLE
 # if __GNUC__ >= 2
 #  define PRINTF_STYLE(f, a) __attribute__ ((__format__ (__printf__, f, a)))
@@ -84,7 +87,6 @@ typedef FILE *argp_fmtstream_t;
 #else /* !ARGP_FMTSTREAM_USE_LINEWRAP */
 /* Guess we have to define our own version.  */
 
-
 struct argp_fmtstream
 {
   FILE *stream;			/* The stream we're outputting to.  */

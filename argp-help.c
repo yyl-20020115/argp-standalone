@@ -53,7 +53,9 @@ char *alloca ();
 # include <../libio/libioP.h>
 # include <wchar.h>
 #endif
-
+#ifdef _WIN32
+#define __attribute__(x) 
+#endif
 #ifndef _
 /* This is for other GNU distributions with internationalized messages.  */
 # if defined HAVE_LIBINTL_H || 0

@@ -38,10 +38,11 @@ char *alloca ();
 
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 #include <limits.h>
+#ifndef _WIN32
+#include <unistd.h>
+#endif
 #include <getopt.h>
-
 #ifndef _
 /* This is for other GNU distributions with internationalized messages.
    When compiling libc, the _ macro is predefined.  */
@@ -289,9 +290,9 @@ struct parser
   struct argp_state state;
 
   /* Memory used by this parser.  */
-  void *storage;
+  char *storage;
 };
-
+
 /* The next usable entries in the various parser tables being filled in by
    convert_options.  */
 struct parser_convert_state
