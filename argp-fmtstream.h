@@ -86,7 +86,10 @@ typedef FILE *argp_fmtstream_t;
 
 #else /* !ARGP_FMTSTREAM_USE_LINEWRAP */
 /* Guess we have to define our own version.  */
-
+#if defined(_MSC_VER)
+#include <BaseTsd.h>
+typedef SSIZE_T ssize_t;
+#endif
 struct argp_fmtstream
 {
   FILE *stream;			/* The stream we're outputting to.  */

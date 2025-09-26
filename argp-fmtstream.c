@@ -29,12 +29,10 @@
 #include <errno.h>
 #include <stdarg.h>
 #include <ctype.h>
-
+#ifdef _WIN32
+#endif
 #include <argp-fmtstream.h>
 #include "argp-namefrob.h"
-#ifdef _WIN32
-typedef intptr_t ssize_t
-#endif
 #ifndef ARGP_FMTSTREAM_USE_LINEWRAP
 
 #ifndef isblank
